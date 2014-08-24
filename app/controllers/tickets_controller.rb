@@ -31,11 +31,16 @@ class TicketsController < ApplicationController
 	end
 
 	def update
-		
+		if @ticket.update_attributes(ticket_params)
+			redirect_to project_ticket_path(@project, @ticket), notice: 'ticket updated'
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
-		
+		@ticket.destroy
+		redirect_to project_path(@project), alert: 'ticket destroyed'
 	end
 
 	private

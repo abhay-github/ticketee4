@@ -1,0 +1,1 @@
+dependent: :delete_all for tickets in a project

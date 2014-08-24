@@ -4,3 +4,9 @@
 
 <%= link_to "Edit", edit_project_path(@project) %>
 <%= link_to "Delete", project_path(@project), method: "delete", data: { confirm: "Are you sure?" } %>
+
+<ul id="tickets">
+	<%  @project.tickets.each do |tkt| %>
+		<li><%= link_to tkt.title, [@project, tkt] %></li>
+	<% end %>
+</ul>
