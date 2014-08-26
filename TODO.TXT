@@ -1,1 +1,4 @@
-dependent: :delete_all for tickets in a project
+1 create user model with name, email, and password
+2 add sign up button inside nav
+3 user create show new actions. IMPLEMENT THE VIEWS
+4 sessions with new create destroy  

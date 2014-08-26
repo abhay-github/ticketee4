@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>
-  		<% if content_for? :title %>
-  			<%= yield(:title) %>
+		<% if content_for? :title %>
+			<%= yield(:title) %>
 		<% else %>
 			Ticketee
 		<% end %>
@@ -14,13 +14,19 @@
 </head>
 <body>
 
-<% flash.each do |key,val| %>
-	<div class="flash" id="<%= key %>">
-		<%= val %>
-	</div>
-<% end %>
+  <nav>
+    <% if !signed_in? %>
+        <%= link_to 'Sign Up', signup_path %>
+    <% end %>
+  </nav>
 
-<%= yield %>
+  <% flash.each do |key,val| %>
+  	<div class="flash" id="<%= key %>">
+  		<%= val %>
+  	</div>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>

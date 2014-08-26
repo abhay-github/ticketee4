@@ -1,8 +1,16 @@
 Ticketee4::Application.routes.draw do
   
+  # get "sessions/create"
+  match 'signout', to: 'sessions#destroy', via: :delete
+  match 'signin', to: 'sessions#new', via: :get
+  match 'sessions', to: 'sessions#create', via: :post
   resources :projects do
     resources :tickets
   end
+
+  match 'signup', to: 'users#new', via: :get
+
+  resources :users
   
   root 'projects#index'
 
